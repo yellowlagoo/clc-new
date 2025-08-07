@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+:root {
+  /* Clean, minimal color palette */
+  --background: #ffffff;
+  --foreground: #1e293b;
+  --muted-foreground: #64748b;
+  --accent: #6F4D6CFF;
+  --accent-foreground: #ffffff;
+  --border: #e2e8f0;
+  
+  /* System font stack */
+  --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  
+  /* System font */
+  --font-system: var(--font-system);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-system);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Clean scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Simple focus styles */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Clean transitions */
+* {
+  transition-property: color, background-color, opacity, transform;
+  transition-timing-function: ease-in-out;
+  transition-duration: 150ms;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-system);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+.text-large {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.text-medium {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text-body {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.text-body-large {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section spacing */
+.section-padding {
+  padding: 80px 0;
+}
+
+.section-padding-large {
+  padding: 120px 0;
+}
+
+/* Simple card */
+.card-simple {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+/* Simple button */
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+/* Grid helpers */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .text-large {
+    font-size: 36px;
+  }
+  
+  .text-medium {
+    font-size: 28px;
+  }
+  
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  .section-padding-large {
+    padding: 80px 0;
+  }
+}
